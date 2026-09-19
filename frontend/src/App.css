@@ -1,0 +1,673 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+    font-family: 'DM Sans', sans-serif;
+    color: #292724;
+    background: #f8f5ef;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background:
+            radial-gradient(
+                    circle at 85% 10%,
+                    rgba(222, 204, 181, 0.2),
+                    transparent 25%
+            ),
+            #f8f5ef;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #292724;
+    outline-offset: 3px;
+}
+
+.app {
+    min-height: 100vh;
+}
+
+/* NAVIGATION */
+
+.nav {
+    max-width: 1280px;
+    margin: auto;
+    padding: 28px 42px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 29px;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    color: #77716a;
+    font-size: 13px;
+    text-transform: lowercase;
+}
+
+.nav-link:hover {
+    color: #292724;
+}
+
+.new-button {
+    border: 1px solid #292724;
+    background: #292724;
+    color: #fff;
+
+    padding: 11px 18px;
+    border-radius: 100px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* HERO */
+
+.hero {
+    max-width: 900px;
+    margin: 85px auto 115px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.eyebrow,
+.section-label,
+.collection-count {
+    margin: 0 0 18px;
+
+    color: #9b8d7e;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(55px, 8vw, 90px);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #9b8d7e;
+    font-style: italic;
+}
+
+.hero-copy {
+    max-width: 470px;
+    margin: 28px auto 35px;
+
+    color: #77716a;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.search-bar {
+    max-width: 700px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    padding: 7px 7px 7px 20px;
+
+    background: #fff;
+    border: 1px solid #e2ddd5;
+    border-radius: 100px;
+
+    box-shadow: 0 15px 45px rgba(63, 54, 43, 0.08);
+}
+
+.search-icon {
+    margin-right: 10px;
+
+    color: #a09a92;
+    font-size: 24px;
+}
+
+.search-bar input {
+    min-width: 0;
+    flex: 1;
+
+    padding: 14px 5px;
+
+    border: 0;
+    outline: none;
+    background: transparent;
+
+    color: #292724;
+    font-size: 14px;
+}
+
+.search-bar input::placeholder {
+    color: #aaa49d;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 100px;
+
+    padding: 13px 25px;
+
+    background: #292724;
+    color: #fff;
+
+    font-size: 12px;
+}
+
+/* SECTIONS */
+
+.discover-section,
+.collections-section {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 42px 110px;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.section-label {
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.pixabay {
+    margin: 0 0 5px;
+
+    color: #a09a92;
+    font-size: 11px;
+}
+
+/* DISCOVER MASONRY */
+
+.masonry {
+    columns: 4 240px;
+    column-gap: 16px;
+}
+
+.discover-card {
+    position: relative;
+
+    margin: 0 0 16px;
+
+    overflow: hidden;
+    break-inside: avoid;
+
+    background: #e8e3dc;
+    border-radius: 15px;
+}
+
+.discover-card img {
+    width: 100%;
+    display: block;
+
+    transition:
+            transform 0.4s ease,
+            filter 0.3s ease;
+}
+
+.discover-card:hover img {
+    transform: scale(1.015);
+    filter: brightness(0.82);
+}
+
+.image-hover {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    padding: 13px;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.discover-card:hover .image-hover {
+    opacity: 1;
+}
+
+.image-hover button {
+    border: 0;
+    border-radius: 100px;
+
+    padding: 10px 17px;
+
+    background: #fff;
+    color: #292724;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.photo-credit {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 9px;
+    letter-spacing: 0.3px;
+
+    opacity: 0;
+
+    transition: opacity 0.2s;
+}
+
+.discover-card:hover .photo-credit {
+    opacity: 1;
+}
+
+/* COLLECTIONS */
+
+.collections-section {
+    padding-top: 85px;
+
+    border-top: 1px solid #e2ddd5;
+}
+
+.outline-button {
+    border: 1px solid #cfc7bd;
+    border-radius: 100px;
+
+    padding: 11px 17px;
+
+    background: transparent;
+    color: #5e5953;
+
+    font-size: 11px;
+}
+
+.outline-button:hover {
+    background: #fff;
+}
+
+.collection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.collection {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid #e4ded6;
+    border-radius: 22px;
+}
+
+.collection-top {
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.collection-count {
+    margin-bottom: 7px;
+}
+
+.collection-top h3 {
+    margin: 0;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 31px;
+    font-weight: 400;
+}
+
+.delete-collection {
+    padding: 6px;
+
+    border: 0;
+    background: transparent;
+
+    color: #aaa29a;
+
+    font-size: 10px;
+}
+
+.delete-collection:hover {
+    color: #8b4f47;
+}
+
+.saved-grid {
+    display: grid;
+    grid-template-columns: repeat(
+    auto-fill,
+    minmax(190px, 1fr)
+  );
+    gap: 16px;
+}
+
+.saved-card {
+    min-width: 0;
+}
+
+.saved-image {
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 4 / 5;
+
+    background: #eee8e0;
+    border-radius: 13px;
+}
+
+.saved-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition:
+            transform 0.3s ease,
+            filter 0.3s ease;
+}
+
+.saved-image:hover img {
+    transform: scale(1.02);
+    filter: brightness(0.72);
+}
+
+.saved-actions {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    opacity: 0;
+
+    transition: opacity 0.2s;
+}
+
+.saved-image:hover .saved-actions {
+    opacity: 1;
+}
+
+.saved-actions button {
+    padding: 8px 12px;
+
+    border: 0;
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.94);
+    color: #393632;
+
+    font-size: 10px;
+}
+
+.saved-card > p {
+    margin: 9px 4px 0;
+
+    overflow: hidden;
+
+    color: #746e67;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* EMPTY STATES */
+
+.empty {
+    padding: 75px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px dashed #d4cdc4;
+    border-radius: 22px;
+}
+
+.empty-symbol {
+    margin-bottom: 15px;
+
+    color: #a99d90;
+    font-family: 'DM Serif Display', serif;
+    font-size: 35px;
+}
+
+.empty h3 {
+    margin: 0;
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.empty p {
+    margin: 10px 0 20px;
+
+    color: #8c857d;
+    font-size: 12px;
+}
+
+.empty button {
+    padding: 11px 18px;
+
+    border: 0;
+    border-radius: 100px;
+
+    background: #292724;
+    color: #fff;
+
+    font-size: 11px;
+}
+
+.empty-collection {
+    width: 100%;
+    min-height: 140px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px dashed #d6cfc6;
+    border-radius: 14px;
+
+    background: #faf8f4;
+    color: #9b948c;
+
+    font-size: 11px;
+}
+
+.empty-collection span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+}
+
+/* FOOTER */
+
+footer {
+    max-width: 1196px;
+    margin: auto;
+
+    padding: 35px 0 45px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #e2ddd5;
+}
+
+footer .logo {
+    font-size: 20px;
+}
+
+footer p {
+    color: #aaa29a;
+    font-family: 'DM Serif Display', serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .nav {
+        padding: 22px 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .hero {
+        margin: 65px auto 90px;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    .hero-copy {
+        font-size: 16px;
+    }
+
+    .search-bar {
+        padding-left: 15px;
+    }
+
+    .search-bar button {
+        padding: 12px 18px;
+    }
+
+    .discover-section,
+    .collections-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .masonry {
+        columns: 2 140px;
+        column-gap: 10px;
+    }
+
+    .discover-card {
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    .collection {
+        padding: 20px;
+    }
+
+    .saved-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    footer {
+        margin: 0 20px;
+    }
+
+    footer p {
+        display: none;
+    }
+}
+.collection-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.share-collection {
+    padding: 6px;
+    border: 0;
+    background: transparent;
+    color: #77716a;
+    font-size: 10px;
+}
+
+.share-collection:hover {
+    color: #292724;
+}
