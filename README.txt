@@ -49,8 +49,7 @@ full-stack application. This challenge gave me exposure to React, Node.js, Expre
 HTTP requests, and connecting a frontend to a backend. I also learned how to integrate the Pixabay
 API and manage application data. Web development is a skill I want to bolster and add to my technical
 toolkit, so I appreciated the flexibility of the challenge. The provided resources gave me a strong
-starting point while still encouraging creative freedom and research into different
- approaches/methodologies.
+starting point while still encouraging creative freedom and research into different approaches/methodologies.
 
 ========================================
                 FEEDBACK
